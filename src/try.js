@@ -1,5 +1,5 @@
-module.exports = function solveEquation(equation) { 
-  equation = equation.replace(/\s/g, "");
+function solveEquation(equation) {
+    equation = equation.replace(/\s/g, "");
     if (equation.startsWith('-')) {
         let regExp1 = /[-+]\d+/g;
         let ABC = equation.match(regExp1);
@@ -8,10 +8,9 @@ module.exports = function solveEquation(equation) {
         let b = parseInt(ABC[1]);
         let c = parseInt(ABC[2]);
         let answer = [];
-        answer[0]= Math.round((- b + Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a));
-        answer[1]= Math.round((- b - Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a));
+        answer[0]= (- b + Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a)
+        answer[1]= (- b - Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a)
         console.log(answer);
-        return answer
     } else {
         let regExp = /\d+/;
         let regExp1 = /[-+]\d+/g;
@@ -22,10 +21,11 @@ module.exports = function solveEquation(equation) {
         let b = parseInt(BC[0]);
         let c = parseInt(BC[1]);
         let answer = [];
-        answer[1]= Math.round((- b + Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a));
-        answer[0]= Math.round((- b - Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a));
+        answer[0]= (- b + Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a)
+        answer[1]= (- b - Math.sqrt(Math.pow(b,2)- 4 * a * c)) / (2 * a)
         console.log(answer);
-        return answer
     }
-    
+    return answer
 }
+
+    solveEquation('-20 * x^2 - 108797540 * x - 130011773690520')
